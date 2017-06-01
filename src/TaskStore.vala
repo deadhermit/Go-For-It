@@ -86,7 +86,7 @@ class TaskStore : Gtk.ListStore {
     public void remove_task (Gtk.TreeIter iter) {
         bool is_active_task = compare_tasks (iter);
         var _active_task = active_task;
-        this.remove (iter);
+        this.remove (ref iter);
         if (is_active_task && _active_task == active_task) {
             active_task = null;
             refresh_active_task ();
